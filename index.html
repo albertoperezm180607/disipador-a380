@@ -75,7 +75,7 @@ function go(id){const to=new THREE.Vector3(...V[id]).normalize().multiplyScalar(
 for(const k in V)document.getElementById(k).onclick=()=>go(k);
 const ab=document.getElementById("ari");ab.onclick=()=>{const v=!edges[0].visible;edges.forEach(e=>e.visible=v);ab.setAttribute("aria-pressed",v)};
 cam.position.copy(new THREE.Vector3(...V.iso).normalize().multiplyScalar(D));
-function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);const a=w/h;let hh=55;if(a*hh<80)hh=80/a;
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);const a=w/h;let hh=60;if(a*hh<85)hh=85/a;
  cam.left=-hh*a;cam.right=hh*a;cam.top=hh;cam.bottom=-hh;cam.updateProjectionMatrix()}
 new ResizeObserver(resize).observe(stage);resize();
 renderer.setAnimationLoop(t=>{if(anim){const k=Math.min(1,(t-anim.t0)/500),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;cam.position.lerpVectors(anim.from,anim.to,e);if(k>=1)anim=null}
